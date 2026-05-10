@@ -8,6 +8,9 @@ Aplikasi WebGIS interaktif yang menampilkan persebaran objek wisata utama di San
 
 👉 **[https://lior-pbl.github.io/sf-tourist-webgis-signet/](https://lior-pbl.github.io/sf-tourist-webgis-signet/)**
 
+## 🖼️ Preview
+
+![Preview WebGIS San Francisco](sfpreview.jpeg)
 ---
 
 ## ✨ Fitur
