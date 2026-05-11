@@ -8,9 +8,12 @@ Aplikasi WebGIS interaktif yang menampilkan persebaran objek wisata utama di San
 
 👉 **[https://lior-pbl.github.io/sf-tourist-webgis-signet/](https://lior-pbl.github.io/sf-tourist-webgis-signet/)**
 
+---
+
 ## 🖼️ Preview
 
 ![Preview WebGIS San Francisco](sfpreview.jpeg)
+
 ---
 
 ## ✨ Fitur
@@ -24,7 +27,7 @@ Aplikasi WebGIS interaktif yang menampilkan persebaran objek wisata utama di San
 | 📏 Scale Bar Dinamis | Otomatis beralih satuan meter ↔ kilometer |
 | 🔍 Layer Toggle | Panel kontrol untuk mengaktifkan/menonaktifkan layer |
 | 📍 Geolocation | Tombol untuk menemukan posisi pengguna di peta |
-| 🗺️ Basemap Esri | Esri World Street Map |
+| 🗺️ Pilihan Basemap | OpenStreetMap (default) & Esri World Street Map — dapat dipilih langsung di peta |
 
 ---
 
@@ -42,6 +45,7 @@ Aplikasi WebGIS interaktif yang menampilkan persebaran objek wisata utama di San
 ```
 sf-tourist-webgis-signet/
 ├── index.html        ← Entry point aplikasi WebGIS
+├── sfpreview.jpeg    ← Screenshot preview peta
 ├── css/              ← Stylesheet (hasil export qgis2web)
 ├── data/             ← Data GeoJSON layer objek wisata & neighborhood
 ├── images/           ← Aset gambar pendukung
@@ -59,7 +63,7 @@ sf-tourist-webgis-signet/
 | Titik objek wisata | Data primer — digitasi manual |
 | Polygon neighborhood | [DataSF Open Data](https://data.sfgov.org/) |
 | Foto objek wisata | [Wikimedia Commons](https://commons.wikimedia.org/) |
-| Basemap | Esri World Street Map |
+| Basemap | OpenStreetMap & Esri World Street Map |
 
 ---
 
@@ -73,7 +77,7 @@ python -m http.server 8000
 # Buka: http://localhost:8000
 ```
 
-> ⚠️ Membuka `index.html` langsung (`file://`) dapat menyebabkan error 403 pada basemap. Gunakan server lokal atau akses via URL GitHub Pages.
+> ⚠️ Membuka `index.html` langsung (`file://`) dapat menyebabkan error 403 pada basemap OSM. Gunakan server lokal atau akses via URL GitHub Pages.
 
 ---
 
@@ -81,7 +85,7 @@ python -m http.server 8000
 
 | Masalah | Solusi |
 |---|---|
-| Basemap tidak muncul (layar putih) | Pastikan basemap sudah diganti ke Esri di `index.html` |
+| Basemap tidak muncul (layar putih) | Buka via server lokal atau GitHub Pages, jangan buka `file://` langsung |
 | Foto popup tidak tampil | Cek browser console — pastikan URL foto menggunakan HTTPS |
 | Halaman 404 setelah deploy | Tunggu 2–5 menit, pastikan `index.html` ada di root repo |
 | Update tidak kelihatan | Hard refresh: `Ctrl + Shift + R` |
