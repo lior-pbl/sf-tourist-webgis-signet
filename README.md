@@ -4,6 +4,8 @@ An interactive web map of San Francisco tourist attractions, built as a course p
 
 Live: https://lior-pbl.github.io/sf-tourist-webgis-signet/
 
+![Preview](sfpreview.jpeg)
+
 ---
 
 ## Overview
