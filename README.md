@@ -1,104 +1,91 @@
-# 🗺️ San Francisco Tourist WebGIS
+# sf-tourist-webgis
 
-> Course project — Internet-Based GIS | Geodesy & Geomatics Engineering, Universitas Lampung
+An interactive web map of San Francisco tourist attractions, built as a course project for Internet-Based GIS at Universitas Lampung.
 
-An interactive web map showcasing major tourist attractions across San Francisco, CA, with neighborhood boundaries overlaid for geographic context.
-
-## 🌐 Live Demo
-
-👉 **[https://lior-pbl.github.io/sf-tourist-webgis-signet/](https://lior-pbl.github.io/sf-tourist-webgis-signet/)**
+Live: https://lior-pbl.github.io/sf-tourist-webgis-signet/
 
 ---
 
-## 🖼️ Preview
+## Overview
 
-![San Francisco Tourist WebGIS Preview](sfpreview.jpeg)
+The map overlays manually digitized attraction points on top of SF neighborhood boundary polygons sourced from DataSF. Popups pull photos from Wikimedia Commons. The whole thing is a static export from QGIS via qgis2web, hosted on GitHub Pages — no backend, no build step.
 
----
-
-## ✨ Features
-
-| Feature | Description |
-|---|---|
-| 📍 Tourist Attraction Markers | Key attractions with rich info popups |
-| 📷 Photo Popups | Photos pulled from Wikimedia Commons |
-| 🏘️ Neighborhood Boundaries | SF neighborhood polygons as a reference overlay |
-| 🎨 Categorized Markers | Color-coded by attraction type |
-| 📏 Dynamic Scale Bar | Scales automatically between meters and kilometers |
-| 🔍 Layer Control | Toggle individual layers on and off |
-| 📍 Geolocation | Find your current location on the map |
-| 🗺️ Basemap Switcher | Switch between OpenStreetMap (default) and Esri World Street Map right from the map |
+The goal was to practice the full GIS-to-web pipeline: data preparation in QGIS, export to Leaflet, and deploying a working interactive map without a server.
 
 ---
 
-## 🛠️ Built With
+## Stack
 
-- **QGIS 3.x** — Desktop GIS for data preparation and styling
-- **qgis2web** — QGIS plugin that exports projects to interactive web maps
-- **Leaflet.js** — Lightweight JavaScript library for interactive maps
-- **GitHub Pages** — Free static hosting to get the map online
+- **QGIS 3.x** — data preparation, styling, and layer configuration
+- **qgis2web** — exports the QGIS project to a self-contained Leaflet bundle
+- **Leaflet.js** — handles the interactive map runtime
+- **GitHub Pages** — static hosting
 
----
-
-## 📂 Repository Structure
-
-```
-sf-tourist-webgis-signet/
-├── index.html        ← App entry point
-├── sfpreview.jpeg    ← Preview screenshot
-├── css/              ← Stylesheets (qgis2web export)
-├── data/             ← GeoJSON for attraction points & neighborhood polygons
-├── images/           ← Supporting image assets
-├── js/               ← Leaflet scripts & layer configuration
-├── legend/           ← Map legend assets
-└── webfonts/         ← Icon fonts (FontAwesome)
-```
+qgis2web was chosen over hand-writing the Leaflet config because the focus of this project is on the GIS data pipeline, not frontend JavaScript. The tradeoff is less flexibility in customizing the map behavior.
 
 ---
 
-## 📡 Data Sources
+## Features
+
+- Attraction markers categorized by type, color-coded via QGIS symbology
+- Info popups with attraction name, description, and photo from Wikimedia Commons
+- SF neighborhood polygon overlay for geographic reference
+- Layer toggle to show/hide individual layers
+- Basemap switcher between OpenStreetMap and Esri World Street Map
+- Scale bar that adjusts between meters and kilometers
+- Geolocation button to find your position on the map
+
+---
+
+## Data Sources
 
 | Data | Source |
 |---|---|
-| Tourist attraction points | Manually digitized |
+| Tourist attraction points | Manually digitized in QGIS |
 | Neighborhood polygons | [DataSF Open Data](https://data.sfgov.org/) |
 | Attraction photos | [Wikimedia Commons](https://commons.wikimedia.org/) |
-| Basemap | OpenStreetMap & Esri World Street Map |
+| Basemap tiles | OpenStreetMap / Esri |
 
 ---
 
-## 🚀 Running Locally
+## Repository Structure
 
-This app fetches external basemap tiles, so it needs to be served — don't open the file directly:
-
-```bash
-# Python 3
-python -m http.server 8000
-# Then open: http://localhost:8000
+```
+sf-tourist-webgis-signet/
+├── index.html        # Entry point (qgis2web export)
+├── data/             # GeoJSON: attraction points & neighborhood polygons
+├── js/               # Leaflet scripts and layer configuration
+├── css/              # Stylesheets from qgis2web export
+├── images/           # Supporting image assets
+├── legend/           # Map legend assets
+└── webfonts/         # FontAwesome icon fonts
 ```
 
-> ⚠️ Opening `index.html` via `file://` will likely break the OSM basemap with a 403 error. Use a local server or just visit the live GitHub Pages link above.
+---
+
+## Running Locally
+
+The map fetches external basemap tiles, so it needs to run from a local server — opening `index.html` directly via `file://` will trigger a 403 on the OSM tile requests.
+
+```bash
+python -m http.server 8000
+# Open http://localhost:8000
+```
+
+Or just use the live GitHub Pages link above.
 
 ---
 
-## 🔧 Troubleshooting
+## Known Limitations
 
-| Issue | Fix |
-|---|---|
-| Blank or white basemap | Serve locally or use the GitHub Pages URL — don't open via `file://` |
-| Photos not showing in popups | Open the browser console and check that photo URLs are HTTPS |
-| 404 right after deploying | Give it a few minutes, and make sure `index.html` is at the repo root |
-| Updates not showing up | Try a hard refresh: `Ctrl + Shift + R` |
+- No offline support — basemap tiles require an internet connection
+- Photo popups depend on Wikimedia Commons URLs staying stable; broken URLs will show a missing image
+- The export is static: updating attraction data requires re-exporting from QGIS and redeploying
 
 ---
 
-## 👤 Author
+## Author
 
-**Rayhan Dwia Rukmana**  
-Student ID: 2315071087  
-Geodesy & Geomatics Engineering  
-Universitas Lampung
-
----
-
-*Built as a course project for Internet-Based GIS*
+Rayhan Dwia Rukmana — 2315071087  
+Geodesy & Geomatics Engineering, Universitas Lampung  
+Course: Internet-Based GIS
