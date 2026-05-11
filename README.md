@@ -1,8 +1,8 @@
 # 🗺️ San Francisco Tourist WebGIS
 
-> Internet-Based GIS Practicum — Geodesy & Geomatics Engineering, Universitas Lampung
+> Course project — Internet-Based GIS | Geodesy & Geomatics Engineering, Universitas Lampung
 
-An interactive WebGIS application displaying the distribution of major tourist attractions in San Francisco, USA, complete with neighborhood boundary overlay.
+An interactive web map showcasing major tourist attractions across San Francisco, CA, with neighborhood boundaries overlaid for geographic context.
 
 ## 🌐 Live Demo
 
@@ -12,7 +12,7 @@ An interactive WebGIS application displaying the distribution of major tourist a
 
 ## 🖼️ Preview
 
-![Preview WebGIS San Francisco](sfpreview.jpeg)
+![San Francisco Tourist WebGIS Preview](sfpreview.jpeg)
 
 ---
 
@@ -20,23 +20,23 @@ An interactive WebGIS application displaying the distribution of major tourist a
 
 | Feature | Description |
 |---|---|
-| 📍 Tourist Attraction Points | Major tourist spots with detailed info popups |
-| 📷 Photo Popups | Attraction photos sourced from Wikimedia Commons |
-| 🏘️ Neighborhood Overlay | San Francisco neighborhood boundaries (polygon layer) |
-| 🎨 Categorized Symbology | Markers differentiated by attraction type |
-| 📏 Dynamic Scale Bar | Automatically switches between meters and kilometers |
-| 🔍 Layer Toggle | Control panel to show/hide individual layers |
-| 📍 Geolocation | Button to locate the user's position on the map |
-| 🗺️ Basemap Switcher | OpenStreetMap (default) & Esri World Street Map — switchable directly on the map |
+| 📍 Tourist Attraction Markers | Key attractions with rich info popups |
+| 📷 Photo Popups | Photos pulled from Wikimedia Commons |
+| 🏘️ Neighborhood Boundaries | SF neighborhood polygons as a reference overlay |
+| 🎨 Categorized Markers | Color-coded by attraction type |
+| 📏 Dynamic Scale Bar | Scales automatically between meters and kilometers |
+| 🔍 Layer Control | Toggle individual layers on and off |
+| 📍 Geolocation | Find your current location on the map |
+| 🗺️ Basemap Switcher | Switch between OpenStreetMap (default) and Esri World Street Map right from the map |
 
 ---
 
 ## 🛠️ Built With
 
-- **QGIS 3.x** — Desktop GIS software for data preparation and management
-- **qgis2web** — QGIS plugin for exporting projects into web-based WebGIS
-- **Leaflet.js** — JavaScript library for interactive browser maps
-- **GitHub Pages** — Free static hosting for WebGIS publication
+- **QGIS 3.x** — Desktop GIS for data preparation and styling
+- **qgis2web** — QGIS plugin that exports projects to interactive web maps
+- **Leaflet.js** — Lightweight JavaScript library for interactive maps
+- **GitHub Pages** — Free static hosting to get the map online
 
 ---
 
@@ -44,14 +44,14 @@ An interactive WebGIS application displaying the distribution of major tourist a
 
 ```
 sf-tourist-webgis-signet/
-├── index.html        ← WebGIS application entry point
-├── sfpreview.jpeg    ← Map preview screenshot
+├── index.html        ← App entry point
+├── sfpreview.jpeg    ← Preview screenshot
 ├── css/              ← Stylesheets (qgis2web export)
-├── data/             ← GeoJSON data for tourist spots & neighborhoods
+├── data/             ← GeoJSON for attraction points & neighborhood polygons
 ├── images/           ← Supporting image assets
 ├── js/               ← Leaflet scripts & layer configuration
-├── legend/           ← Map legend files
-└── webfonts/         ← Icon fonts (Leaflet/FontAwesome)
+├── legend/           ← Map legend assets
+└── webfonts/         ← Icon fonts (FontAwesome)
 ```
 
 ---
@@ -60,7 +60,7 @@ sf-tourist-webgis-signet/
 
 | Data | Source |
 |---|---|
-| Tourist attraction points | Primary data — manual digitizing |
+| Tourist attraction points | Manually digitized |
 | Neighborhood polygons | [DataSF Open Data](https://data.sfgov.org/) |
 | Attraction photos | [Wikimedia Commons](https://commons.wikimedia.org/) |
 | Basemap | OpenStreetMap & Esri World Street Map |
@@ -69,26 +69,26 @@ sf-tourist-webgis-signet/
 
 ## 🚀 Running Locally
 
-Since this app uses external basemap tiles, run it via a local server — do not open the file directly:
+This app fetches external basemap tiles, so it needs to be served — don't open the file directly:
 
 ```bash
 # Python 3
 python -m http.server 8000
-# Open: http://localhost:8000
+# Then open: http://localhost:8000
 ```
 
-> ⚠️ Opening `index.html` directly via `file://` may cause a 403 error on the OSM basemap. Use a local server or access via the GitHub Pages URL instead.
+> ⚠️ Opening `index.html` via `file://` will likely break the OSM basemap with a 403 error. Use a local server or just visit the live GitHub Pages link above.
 
 ---
 
 ## 🔧 Troubleshooting
 
-| Issue | Solution |
+| Issue | Fix |
 |---|---|
-| Blank/white basemap | Open via local server or GitHub Pages, not `file://` directly |
-| Photo popups not showing | Check browser console — ensure photo URLs use HTTPS |
-| 404 after deployment | Wait 2–5 minutes, ensure `index.html` is at the repo root |
-| Changes not visible | Hard refresh: `Ctrl + Shift + R` |
+| Blank or white basemap | Serve locally or use the GitHub Pages URL — don't open via `file://` |
+| Photos not showing in popups | Open the browser console and check that photo URLs are HTTPS |
+| 404 right after deploying | Give it a few minutes, and make sure `index.html` is at the repo root |
+| Updates not showing up | Try a hard refresh: `Ctrl + Shift + R` |
 
 ---
 
@@ -101,4 +101,4 @@ Universitas Lampung
 
 ---
 
-*Built as a practicum project for the Internet-Based GIS course*
+*Built as a course project for Internet-Based GIS*
