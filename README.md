@@ -1,8 +1,8 @@
 # 🗺️ San Francisco Tourist WebGIS
 
-> Praktikum Sistem Informasi Geografi Berbasis Internet — Teknik Geodesi dan Geomatika, Universitas Lampung
+> Internet-Based GIS Practicum — Geodesy & Geomatics Engineering, Universitas Lampung
 
-Aplikasi WebGIS interaktif yang menampilkan persebaran objek wisata utama di San Francisco, USA, lengkap dengan overlay batas-batas neighborhood kota.
+An interactive WebGIS application displaying the distribution of major tourist attractions in San Francisco, USA, complete with neighborhood boundary overlay.
 
 ## 🌐 Live Demo
 
@@ -16,89 +16,89 @@ Aplikasi WebGIS interaktif yang menampilkan persebaran objek wisata utama di San
 
 ---
 
-## ✨ Fitur
+## ✨ Features
 
-| Fitur | Keterangan |
+| Feature | Description |
 |---|---|
-| 📍 Titik Objek Wisata | Objek wisata utama dengan popup info lengkap |
-| 📷 Popup Foto | Foto objek dari Wikimedia Commons |
-| 🏘️ Neighborhood Overlay | Batas-batas neighborhood kota SF (polygon layer) |
-| 🎨 Simbologi Kategorik | Marker dibedakan berdasarkan tipe objek wisata |
-| 📏 Scale Bar Dinamis | Otomatis beralih satuan meter ↔ kilometer |
-| 🔍 Layer Toggle | Panel kontrol untuk mengaktifkan/menonaktifkan layer |
-| 📍 Geolocation | Tombol untuk menemukan posisi pengguna di peta |
-| 🗺️ Pilihan Basemap | OpenStreetMap (default) & Esri World Street Map — dapat dipilih langsung di peta |
+| 📍 Tourist Attraction Points | Major tourist spots with detailed info popups |
+| 📷 Photo Popups | Attraction photos sourced from Wikimedia Commons |
+| 🏘️ Neighborhood Overlay | San Francisco neighborhood boundaries (polygon layer) |
+| 🎨 Categorized Symbology | Markers differentiated by attraction type |
+| 📏 Dynamic Scale Bar | Automatically switches between meters and kilometers |
+| 🔍 Layer Toggle | Control panel to show/hide individual layers |
+| 📍 Geolocation | Button to locate the user's position on the map |
+| 🗺️ Basemap Switcher | OpenStreetMap (default) & Esri World Street Map — switchable directly on the map |
 
 ---
 
-## 🛠️ Teknologi yang Digunakan
+## 🛠️ Built With
 
-- **QGIS 3.x** — Perangkat lunak GIS desktop untuk mempersiapkan dan mengelola data
-- **qgis2web** — Plugin QGIS untuk mengekspor proyek menjadi WebGIS berbasis web
-- **Leaflet.js** — Library JavaScript untuk peta interaktif di browser
-- **GitHub Pages** — Hosting statis gratis untuk publikasi WebGIS
+- **QGIS 3.x** — Desktop GIS software for data preparation and management
+- **qgis2web** — QGIS plugin for exporting projects into web-based WebGIS
+- **Leaflet.js** — JavaScript library for interactive browser maps
+- **GitHub Pages** — Free static hosting for WebGIS publication
 
 ---
 
-## 📂 Struktur Repositori
+## 📂 Repository Structure
 
 ```
 sf-tourist-webgis-signet/
-├── index.html        ← Entry point aplikasi WebGIS
-├── sfpreview.jpeg    ← Screenshot preview peta
-├── css/              ← Stylesheet (hasil export qgis2web)
-├── data/             ← Data GeoJSON layer objek wisata & neighborhood
-├── images/           ← Aset gambar pendukung
-├── js/               ← Script Leaflet & konfigurasi layer
-├── legend/           ← Gambar/file legenda peta
-└── webfonts/         ← Font icon (Leaflet/FontAwesome)
+├── index.html        ← WebGIS application entry point
+├── sfpreview.jpeg    ← Map preview screenshot
+├── css/              ← Stylesheets (qgis2web export)
+├── data/             ← GeoJSON data for tourist spots & neighborhoods
+├── images/           ← Supporting image assets
+├── js/               ← Leaflet scripts & layer configuration
+├── legend/           ← Map legend files
+└── webfonts/         ← Icon fonts (Leaflet/FontAwesome)
 ```
 
 ---
 
-## 📡 Sumber Data
+## 📡 Data Sources
 
-| Data | Sumber |
+| Data | Source |
 |---|---|
-| Titik objek wisata | Data primer — digitasi manual |
-| Polygon neighborhood | [DataSF Open Data](https://data.sfgov.org/) |
-| Foto objek wisata | [Wikimedia Commons](https://commons.wikimedia.org/) |
+| Tourist attraction points | Primary data — manual digitizing |
+| Neighborhood polygons | [DataSF Open Data](https://data.sfgov.org/) |
+| Attraction photos | [Wikimedia Commons](https://commons.wikimedia.org/) |
 | Basemap | OpenStreetMap & Esri World Street Map |
 
 ---
 
-## 🚀 Cara Menjalankan Secara Lokal
+## 🚀 Running Locally
 
-Karena menggunakan tile basemap eksternal, jalankan via server lokal — bukan buka file langsung:
+Since this app uses external basemap tiles, run it via a local server — do not open the file directly:
 
 ```bash
 # Python 3
 python -m http.server 8000
-# Buka: http://localhost:8000
+# Open: http://localhost:8000
 ```
 
-> ⚠️ Membuka `index.html` langsung (`file://`) dapat menyebabkan error 403 pada basemap OSM. Gunakan server lokal atau akses via URL GitHub Pages.
+> ⚠️ Opening `index.html` directly via `file://` may cause a 403 error on the OSM basemap. Use a local server or access via the GitHub Pages URL instead.
 
 ---
 
 ## 🔧 Troubleshooting
 
-| Masalah | Solusi |
+| Issue | Solution |
 |---|---|
-| Basemap tidak muncul (layar putih) | Buka via server lokal atau GitHub Pages, jangan buka `file://` langsung |
-| Foto popup tidak tampil | Cek browser console — pastikan URL foto menggunakan HTTPS |
-| Halaman 404 setelah deploy | Tunggu 2–5 menit, pastikan `index.html` ada di root repo |
-| Update tidak kelihatan | Hard refresh: `Ctrl + Shift + R` |
+| Blank/white basemap | Open via local server or GitHub Pages, not `file://` directly |
+| Photo popups not showing | Check browser console — ensure photo URLs use HTTPS |
+| 404 after deployment | Wait 2–5 minutes, ensure `index.html` is at the repo root |
+| Changes not visible | Hard refresh: `Ctrl + Shift + R` |
 
 ---
 
-## 👤 Penulis
+## 👤 Author
 
 **Rayhan Dwia Rukmana**  
-NPM: 2315071087  
-Program Studi Teknik Geodesi dan Geomatika  
+Student ID: 2315071087  
+Geodesy & Geomatics Engineering  
 Universitas Lampung
 
 ---
 
-*Dibuat sebagai tugas praktikum mata kuliah SIG Berbasis Internet*
+*Built as a practicum project for the Internet-Based GIS course*
